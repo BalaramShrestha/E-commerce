@@ -38,7 +38,12 @@ include("includes/db.php");
 		$sel_c = "select * from customers where customer_pass = '$c_pass' AND customer_email='$c_email' ";
 	
 		$run_c = mysqli_query($con,$sel_c);
+		while($row = mysqli_fetch_array($run_c)){
+			$cus_id = $row['customer_id'];
+			$_SESSION['cus_id'] = $cus_id;
+		}
 		$check_customer = mysqli_num_rows($run_c);
+		
 		if($check_customer==0){
 			
 			echo "<script>alert('Password or email is incorret, Please try algain!')</script>";
@@ -54,6 +59,7 @@ include("includes/db.php");
 
 				if($check_customer>0 AND $check_cart==0){
 					$_SESSION['customer_email'] = $c_email ;
+					
 					echo"<script>alert('You logged in successfully, Thanks')</script>";
 					echo"<script>window.open('customer/my_account.php','_self')</script>";
 				}else{

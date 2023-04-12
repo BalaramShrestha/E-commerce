@@ -1,5 +1,7 @@
 <?php 
 session_start(); 
+
+
 include("functions/functions.php");
 
 ?>
@@ -118,7 +120,11 @@ include("functions/functions.php");
 							$total = 0;
 							global $con;
 							$ip = getIp();	
-							$cus_id = $_SESSION['customer_email'];
+							if(!isset($_SESSION['cus_id'])){
+								echo "Initialize session";}
+								else{
+							$cus_id = $_SESSION['cus_id'];
+							
 							$sel_price = "select * from cart where customer_id='$cus_id' ";
 							$run_price = mysqli_query($con,$sel_price);	
 							while($p_price = mysqli_fetch_array($run_price)){
@@ -161,7 +167,7 @@ include("functions/functions.php");
 
 
 
-					<?php }} ?>
+					<?php }}} ?>
 					
 					<?php
 

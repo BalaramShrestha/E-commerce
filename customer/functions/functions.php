@@ -2,8 +2,8 @@
 
 $con = mysqli_connect("localhost","root","","ecommerce");
 
-if(mysqli_connect_errno()){
-	echo "The connection was not established:" .mysqli_query_error(); 
+if(mysqli_connect_error()){
+	echo "The connection was not established"; 
 
 }
 //getting the user IP adress
@@ -40,7 +40,8 @@ function cart(){
 			
 			echo "";
 		}else{
-			$insert_pro = "insert into cart(p_id,ip_add) values('$pro_id','$ip') ";
+			$cus_id = $_SESSION['cus_id'];
+			$insert_pro = "insert into cart(p_id,ip_add,customer_id) values('$pro_id','$ip','$cus_id') ";
 			$run_pro = mysqli_query($con,$insert_pro);
 			echo "<script>window.open('index.php','_self')</script>";
 		}
