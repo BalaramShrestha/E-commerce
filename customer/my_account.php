@@ -54,6 +54,7 @@ include("functions/functions.php");
 			<div id="sidebar">
 				<div id="sidebar_title">My Account:</div>
 					<?php
+					
 					if(isset($_SESSION['customer_email'] )){
 					$user = $_SESSION['customer_email'] ; 
 					$get_img = "select * from customers where customer_email = '$user' ";
@@ -61,18 +62,21 @@ include("functions/functions.php");
 					$row_img = mysqli_fetch_array($run_img);
 					$c_image = $row_img['customer_image'];
 					$c_name = $row_img['customer_name'];
-
-
-					echo "<p style='text-align:center; border='2px solid white' '><img src='customer_images/$c_image' width='150px' height='150px'  /> ";
-					}
 					?>
+
+
 					<ul id="cats">
-						<li><a href="my_account.php?my_orders">My Orders</a></li>
+						<li><a href="../cart.php">My Orders</a></li>
 						<li><a href="my_account.php?edit_account">Edit Account</a></li>
 						<li><a href="my_account.php?change_pass">Change Password</a></li>
 						<li><a href="my_account.php?delete_account">Delete Account</a></li>
 						<!--<li><a href="my_account.php?logout.php">Logout</a></li>-->
 					</ul>
+					<?php
+					echo "<p style='text-align:center; border='2px solid white' '><img src='customer_images/$c_image' width='150px' height='150px'  /> ";
+					}
+					?>
+				
 
 					
 
@@ -124,7 +128,7 @@ include("functions/functions.php");
 
 						echo "
 						<h2 style='padding:20px;'>Welcome : $c_name </h2>
-						<b>You can see your order progress by clicking this link<a href='my_orders'>link</a></b>";
+						<b>You can see your order progress by clicking this link<a href='../cart.php'>link</a></b>";
 					}
 					}
 					}
