@@ -1,6 +1,9 @@
 <?php  
 session_start();
 include("functions/functions.php");
+
+
+
 ?>
 <!DOCTYPE>
 
@@ -108,6 +111,7 @@ include("functions/functions.php");
 				<div id="products_box">
 
 					<?php 	
+				
 					//get ip address of local machine
 					//echo $ip = getIp(); ?>
 					

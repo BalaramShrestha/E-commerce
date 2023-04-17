@@ -38,15 +38,17 @@ function cart(){
 		
 		if($total = mysqli_num_rows($run_check)>0){
 			
-			echo "";
+			echo ""; 	
 		}else{
 			$cus_id = $_SESSION['cus_id'];
-			$insert_pro = "insert into cart(p_id,ip_add,customer_id) values('$pro_id','$ip','$cus_id') ";
+			$insert_pro = "insert into cart(p_id,customer_id) values('$pro_id','$cus_id') ";
 			$run_pro = mysqli_query($con,$insert_pro);
 			echo "<script>window.open('index.php','_self')</script>";
+
 		}
 	}
-}//close of cart ()
+}
+//close of cart ()
 
 
 //getting the total added items
