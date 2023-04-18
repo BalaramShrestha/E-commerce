@@ -44,7 +44,7 @@ if(isset($_POST['change_pass'])){
 
 		$run_update = mysqli_query($con,$update_pass);
 		 echo "<script>alert('Your password was updated successfully')</script>";;
-		 echo "<script>window.open('my_account.php','_self')</script>";
+		 echo "<script>window.open('../logout.php','_self')</script>";
 	}
 }
 

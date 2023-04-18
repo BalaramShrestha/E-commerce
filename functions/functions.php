@@ -24,38 +24,37 @@ function getIp()
 
 
 
-//add to cart features or creating the shopping cart
 function cart()
 {
-    if (!isset($_SESSION['customer_email'])) {
-        // Do nothing if customer email is not set in session
-    } else {
-        $email = $_SESSION['customer_email'];
-        global $con;
-        $ip = getIp();
+	if (!isset($_SESSION['customer_email'])) {
+		// Do nothing if customer email is not set in session
+	} else {
+		$email = $_SESSION['customer_email'];
+		global $con;
+		$ip = getIp();
 
-        if (isset($_GET['pro_id'])) {
-            // Retrieve customer ID associated with the customer email
-            $sql = mysqli_query($con, "SELECT customer_id from customers WHERE customer_email = '$email'");
-            while ($row = mysqli_fetch_assoc($sql)) {
-                $cus_id = $row['customer_id'];
-                $_SESSION['cus_id'] = $cus_id;
-            }
+		if (isset($_GET['pro_id'])) {
+			// Retrieve customer ID associated with the customer email
+			$sql = mysqli_query($con, "SELECT customer_id from customers WHERE customer_email = '$email'");
+			while ($row = mysqli_fetch_assoc($sql)) {
+				$cus_id = $row['customer_id'];
+				$_SESSION['cus_id'] = $cus_id;
+			}
 
-            $pro_id = $_GET['pro_id'];
+			$pro_id = $_GET['pro_id'];
 
-            // Check if the product is already in the cart for the given customer and product ID
-            $check_pro = "SELECT * FROM cart WHERE p_id='$pro_id' AND customer_id='$cus_id'";
-            $run_check = mysqli_query($con, $check_pro);
+			// Check if the product is already in the cart for the given customer and product ID
+			$check_pro = "SELECT * FROM cart WHERE p_id='$pro_id' AND customer_id='$cus_id'";
+			$run_check = mysqli_query($con, $check_pro);
 
-            if (mysqli_num_rows($run_check) == 0) {
-                // If product is not in the cart, insert it into the cart table
-                $insert_pro = "INSERT INTO cart(p_id, qty, customer_id) VALUES ('$pro_id', 1, '$cus_id')";
-                $run_pro = mysqli_query($con, $insert_pro);
-            }
-            // Else, if product is already in the cart, do nothing
-        }
-    }
+			if (mysqli_num_rows($run_check) == 0) {
+				// If product is not in the cart, insert it into the cart table
+				$insert_pro = "INSERT INTO cart(p_id, qty, customer_id) VALUES ('$pro_id', 1, '$cus_id')";
+				$run_pro = mysqli_query($con, $insert_pro);
+			}
+			// Else, if product is already in the cart, do nothing
+		}
+	}
 }
 
 

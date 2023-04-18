@@ -247,7 +247,3 @@ function getBrandPro(){
 		
 	}//close of $_GET['cat']
 }//close of getPro()
-
-
-
-?>

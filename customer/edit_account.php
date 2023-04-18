@@ -55,7 +55,7 @@ if (isset($_SESSION['customer_email'])) {
 			<td align="right">Customer Country</td>
 			<td>
 				<select name="c_country">
-					<option value="" selected> <?php echo $country ?></option>
+					<option selected><?php echo $country ?></option>
 					<option>Nepal</option>
 					<option>India</option>
 					<option>China</option>
@@ -112,6 +112,7 @@ if (isset($_POST['update'])) {
         $c_image = $_POST['current_image'];
 	
     }
+	
 
     // Get customer ID
     $customer_id = $_SESSION['cus_id'];
