@@ -12,23 +12,24 @@ include("includes/db.php");
 		</tr>
 		<tr>
 			<td align="right"><b>Email: </b></td>
-			<td><input type="text" name="email" placeholder="enter email" required/></td>
+			<td><input type="text" name="email" id="email" placeholder="enter email" /></td>
 		</tr>
 
 		<tr>
 			<td align="right"><b>Password: </b></td>
-			<td><input type="Password" name="pass" placeholder="enter password" required /></td>
+			<td><input type="Password" name="pass" id="pass" placeholder="enter password"  /></td>
 		</tr>
 		<tr align="center">
 			<td colspan="3"><a href="checkout.php?forget_pass">Forget Password?</a></td>
 		</tr>
 
 		<tr align="center">
-			<td colspan="3"><input type="submit" name="login" value="login"></td>
+			<td colspan="3"><input type="submit" name="login" value="login" ></td>
 		</tr>
 	</table>
 	<h2 style="float:right; padding-right: 20px;"><a href="customer_register.php" style="text-decoration:none;">New? Register Here</a ></h2>
 </form>
+
 </div>
 <?php
 	if(isset($_POST['login'])){

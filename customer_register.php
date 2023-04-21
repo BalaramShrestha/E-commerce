@@ -174,6 +174,11 @@ include("includes/db.php"); //db.php means making a connection
 										alert("Name cannot contain numbers or special characters");
 										return false;
 									}
+									var cityRegex = /^[a-zA-Z\s]*$/;
+									if (!c_city.match(nameRegex)) {
+										alert("City must be only alphabet");
+										return false;
+									}
 
 									var emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 									if (!c_email.match(emailRegex)) {
@@ -182,7 +187,7 @@ include("includes/db.php"); //db.php means making a connection
 									}
 
 
-									var passwordRegex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,}$/;
+									var passwordRegex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d@#$!%^&*()_+]{6,}$/;
 									if (!c_pass.match(passwordRegex)) {
 										alert("Password must be at least 6 characters long and contain at least one uppercase letter and one number");
 										return false;
