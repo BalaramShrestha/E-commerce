@@ -11,7 +11,7 @@ include("functions/functions.php");
 <html>
 	<head> 
 		<title>My Online Shop</title>
-		<link rel="stylesheet" href="styles/style.css " media="all" type="text/css" >
+		<link rel="stylesheet" href="customer/styles/style.css " media="all" type="text/css" >
 	<head>
 <body>
 	<!--Main containter or wrapper starts from here    -->
@@ -52,28 +52,7 @@ include("functions/functions.php");
 		<!--Content wrapper starts-->
 		<div class="content_wrapper">
 
-			<div id="sidebar">
-				<div id="sidebar_title">Categories</div>
-					
-					<ul id="cats">
-
-						<?php
-							//show categories (list) from database  
-							getCats();  
-						?>	
-					</ul>
-
-					<div id="sidebar_title">Brands</div>
-					<ul id="cats">
-						<?php  getBrands(); ?>
-
-					</ul>
-
-
-				
-
-
-			</div>
+		
 
 			<div id="content_area">
 
@@ -81,7 +60,7 @@ include("functions/functions.php");
 				cart();
 				?>
 				<div id="shopping_cart">
-
+    
 					<span style="float: right; font-size: 18px; padding: 5px; line-height: 40px;">
 						<?php
 						
@@ -110,20 +89,9 @@ include("functions/functions.php");
 
 				<div id="products_box">
 
-					<?php 	
-				
-					//get ip address of local machine
-					//echo $ip = getIp(); ?>
-					
-					<?php
-					//show all product in home page
-						getPro();
-
-					?>
-
-					<?php getCatPro(); ?>
-
-					<?php getBrandPro(); ?>
+                    <h1>
+                        We Deliver quality accessories.
+                    </h1>
 				</div>
 
 
