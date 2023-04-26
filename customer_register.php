@@ -245,7 +245,7 @@ if (isset($_POST['register'])) {
 
 
 
-	$run_c = mysqli_query($con, "insert into customers(customer_ip,customer_name,customer_email,customer_pass,customer_country,customer_city,customer_contact,customer_address,customer_image) values('$ip','$c_name','$c_email','$c_pass','$c_country','$c_city','$c_contact','$c_address','$c_image')");
+	$run_c = mysqli_query($con, "insert  into customers(customer_ip,customer_name,customer_email,customer_pass,customer_country,customer_city,customer_contact,customer_address,customer_image) values('$ip','$c_name','$c_email','$c_pass','$c_country','$c_city','$c_contact','$c_address','$c_image')");
 
 
 	$sel_cart = "select * from cart where ip_add='$ip' ";
